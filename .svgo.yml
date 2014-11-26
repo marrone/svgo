@@ -46,6 +46,7 @@ plugins:
   - removeEmptyAttrs
   - removeEmptyContainers
   - mergePaths
+  - simplifyPaths
   - cleanupIDs
   - removeUnusedNS
   - transformsWithOnePath
