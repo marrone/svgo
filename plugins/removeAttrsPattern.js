@@ -8,16 +8,7 @@ exports.params = {
     valuePattern: null // regex pattern to match attribute values against
 };
 
-
-function forceRE(s) {
-    if(s && typeof s == "string") { 
-        var parts = s.match(/^\/(.+)\/(\w+)?/) || [s];
-        var pattern = parts.length > 1 ? parts[1] : parts;
-        var flags = parts.length > 2 ? parts[2] : "";
-        return new RegExp(pattern, flags);
-    }
-    return s;
-}
+var convertToRE = removeLeadingZero = require('../lib/svgo/tools').toRegExp;
 
 /**
  * Remove attributes that match a given pattern
@@ -30,8 +21,8 @@ function forceRE(s) {
  */
 exports.fn = function(item, params) {
 
-    var namePattern = forceRE(params.namePattern);
-    var valuePattern = forceRE(params.valuePattern);
+    var namePattern = convertToRE(params.namePattern);
+    var valuePattern = convertToRE(params.valuePattern);
 
     function matches(txt, pattern) {
         return pattern && pattern.test(txt);

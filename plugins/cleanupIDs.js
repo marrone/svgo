@@ -7,10 +7,12 @@ exports.active = true;
 exports.params = {
     remove: true,
     minify: true,
-    prefix: ''
+    prefix: '',
+    whitelistRE: null // selectively preserve ids that match this Regex
 };
 
 var referencesProps = require('./_collections').referencesProps,
+    convertToRE = removeLeadingZero = require('../lib/svgo/tools').toRegExp,
     regReferencesUrl = /^url\(#(.+?)\)$/,
     regReferencesHref = /^#(.+?)$/,
     styleOrScript = ['style', 'script'],
@@ -35,7 +37,8 @@ exports.fn = function(data, params) {
         currentIDstring,
         IDs = {},
         referencesIDs = {},
-        hasStyleOrScript = false;
+        hasStyleOrScript = false,
+        whitelistRE = params.whitelistRE && convertToRE(params.whitelistRE);
 
     /**
      * Bananas!
@@ -66,7 +69,12 @@ exports.fn = function(data, params) {
                     item.eachAttr(function(attr) {
                         // save IDs
                         if (attr.name === 'id') {
-                            IDs[item.attr('id').value] = item;
+                            var idVal = item.attr('id').value;
+                            // only further manipulate ids that are not whitelisted to be 
+                            // presereved as-is
+                            if(!whitelistRE || !whitelistRE.test(idVal)) {
+                                IDs[idVal] = item;
+                            }
                         }
 
                         // save IDs url() references

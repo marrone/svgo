@@ -1,4 +1,6 @@
 {
+    "cleanupIDs.05": {"remove":true, "minify":true, "whitelistRE": "/^safeID/"},
+
     "removeAttrsPattern.01": {"namePattern": "/^on/"},
     "removeAttrsPattern.02": {"valuePattern": "/alert/"},
     "removeAttrsPattern.03": {"nameAndValueMatch": true, "namePattern": "/^on/", "valuePattern": "alert"}
