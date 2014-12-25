@@ -19,6 +19,7 @@ plugins:
   - removeComments
   - removeMetadata
   - removeEditorsNSData
+  - removeAttrsPattern
   - cleanupAttrs
   - convertStyleToAttrs
   - removeRasterImages
