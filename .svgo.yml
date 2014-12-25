@@ -21,6 +21,9 @@ plugins:
   - removeEditorsNSData
   - removeAttrsPattern
   - removeScript
+  - removeText
+  - removeFonts
+  - removeForeignObject
   - cleanupAttrs
   - convertStyleToAttrs
   - removeRasterImages
