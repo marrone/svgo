@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" onclick="void(0);" onmouseover="alert('hi');">
+    test
+</svg>
+
+@@@
+
+<svg xmlns="http://www.w3.org/2000/svg" onclick="void(0);">
+    test
+</svg>

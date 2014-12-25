@@ -9,6 +9,8 @@ var FS = require('fs'),
 
 describe('plugins tests', function() {
 
+    var testParams = JSON.parse(FS.readFileSync(PATH.resolve(__dirname, "_params.json"), "utf-8"));
+
     FS.readdirSync(__dirname).forEach(function(file) {
 
         var match = file.match(regFilename),
@@ -26,6 +28,9 @@ describe('plugins tests', function() {
 
             plugins = {};
             plugins[name] = true;
+            if(testParams[name + "." + index]) {
+                plugins[name] = testParams[name + "." + index];
+            }
 
             svgo = new SVGO({
                 full: true,
