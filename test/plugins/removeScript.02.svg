@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <script>
+            console.log("scripted");
+        </script>
+    </g>
+    <script><!--//
+        console.log(1);
+    //-->
+    </script>
+</svg>
+
+@@@
+
+<svg xmlns="http://www.w3.org/2000/svg">
+    <g/>
+</svg>

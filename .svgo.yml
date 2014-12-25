@@ -20,6 +20,7 @@ plugins:
   - removeMetadata
   - removeEditorsNSData
   - removeAttrsPattern
+  - removeScript
   - cleanupAttrs
   - convertStyleToAttrs
   - removeRasterImages
