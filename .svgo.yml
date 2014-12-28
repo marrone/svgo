@@ -53,3 +53,4 @@ plugins:
   - sortAttrs
   - removeTitle
   - removeDesc
+  - customCallback
